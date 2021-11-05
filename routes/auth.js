@@ -11,7 +11,7 @@ router.get(
 router.get(
   '/google/oauth2callback',
   passport.authenticate('google', {
-    successRedirect: '/',
+    successRedirect: '/cocktails', //change this redierct to a new page view on loggin go here
     failureRedirect: '/auth/google',
   })
 )
