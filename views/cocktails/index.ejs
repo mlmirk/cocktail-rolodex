@@ -2,8 +2,8 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Search cocktails</h1>
-  <h1>Welcome, <%=  user.profile.name %></h1>
+  <h1>Welcome to your Personal Cocktail Rolodex</h1>
+  <h2> <%=  user.profile.name %></h2>
   <% if (user?.profile.avatar) { %>
     <div>
       <img 
@@ -12,6 +12,22 @@
       >
     </div>
   <% } %>
+  <p>Use this site to search and save you favorite drink and thier recipes or if you are looking to mix things up try a random drink</p> 
+<section id="Random-cocktail">
+<h3>Feeling adventurous maybe you would like a random bevrage</h3>
+<form action="/cocktails/random" method="POST">
+  <button >Random Cocktail</button>
+</form>
+</section>
+
+<section id="Search-cocktail">
+  <h3>If not, lets find you your drinks of choice</h3>
+  
+  <form action="/cocktails/search" method="get">
+    <button>Search Cocktails</button>
+  </form>
+  </section>
+
 </main>
 
 <%- include('../partials/footer') %>

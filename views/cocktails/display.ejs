@@ -1,0 +1,25 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<h1>Display Page</h1>
+
+<h2><% sendCocktail.forEach(e => { %></h2>
+  <ul><%=e.title%>
+    <li><%= e.directions %> </li>
+    <% for( let i = 0; i < e.items.length; i++ ) { %>
+      <% if (e.items[i]!== null) { %>
+      <li><%=e.amount[i]%> : <%= e.items[i]%>  </li>
+      <% } %>
+    <% } %>
+
+    <% }) %>
+
+
+
+
+
+</ul>
+</main>
+
+<%- include('../partials/footer') %>
