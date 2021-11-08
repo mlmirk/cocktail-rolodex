@@ -13,13 +13,40 @@
         >
       </div>
     <% } %>
-  <h3>Browse your saved drinks</h3>
-
-
-
-  <p>HERE are your saved recipes</p>
+    <br>
+  <h3>Browse your saved drinks </h3>
   
- <% } else { %>
+  <% savedCocktails.forEach(e => { %>
+  
+    <div class="card" style="width: 18rem;">
+      <img src="<%= e.imgSrc%> " class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%=e.drinkName%></h5>
+        <p class="card-text"><%= e.directions %> </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <% for( let i = 0; i < e.items.length; i++ ) { %>
+          <% if (e.items[i]!== null) { %>
+        <li class="list-group-item"><%=e.amount[i]%> : <%= e.items[i]%>  </li>
+        <% }} %>
+      </ul>
+     
+  
+      
+        
+      
+    </div>
+  
+    <% }) %>
+
+
+
+
+
+
+
+
+<% } else { %>
   <h1>Welcome to the Cocktail Rolodex please sign-in to access all the features inside!</h1>
   <h2>Or select a random Drink</h2>
   <section id="Random-cocktail">

@@ -4,13 +4,11 @@ import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
-router.get('/index',  function (req, res) {
-  res.render('index', { title: 'Home Page', user: req.user ? req.user : null })
-})
+router.get('/', profilesCtrl.index)
 
 
 
-router.post('/savedCocktails', isLoggedIn, profilesCtrl.addCocktail)
+router.post('/', isLoggedIn, profilesCtrl.addCocktail)
 
 export {
   router
