@@ -4,16 +4,33 @@
 <main>
 <h1>Display Page</h1>
 
-<h2><% sendCocktail.forEach(e => { %></h2>
-  <ul><%=e.title%>
-    <li><%= e.directions %> </li>
-    <% for( let i = 0; i < e.items.length; i++ ) { %>
-      <% if (e.items[i]!== null) { %>
-      <li><%=e.amount[i]%> : <%= e.items[i]%>  </li>
-      <% } %>
-    <% } %>
 
-    <% }) %>
+
+
+<% sendCocktail.forEach(e => { %>
+  <div class="card" style="width: 18rem;">
+    <img src="<%= e.img%> " class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%=e.title%></h5>
+      <p class="card-text"><%= e.directions %> </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <% for( let i = 0; i < e.items.length; i++ ) { %>
+        <% if (e.items[i]!== null) { %>
+      <li class="list-group-item"><%=e.amount[i]%> : <%= e.items[i]%>  </li>
+      <% }} %>
+    </ul>
+    <div class="card-body">
+      <button>XXXX</button>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    
+    </div>
+  </div>
+  <% }) %>
+
+
+
 
 
 

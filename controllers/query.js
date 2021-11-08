@@ -9,9 +9,10 @@ function random(req , res){
   axios.get(`http://www.thecocktaildb.com/api/json/v1/1/random.php`)
   .then(response =>{
     const sendCocktail=[]
-    const drink={}
     const cocktails =  response.data.drinks
     cocktails.forEach(c => {
+      const drink={}
+      console.log("LOOP DATA++++++++++++++++++++++++",c)
       drink.title= c.strDrink
       drink.img= c.strDrinkThumb
       drink.directions= c.strInstructions
@@ -26,18 +27,12 @@ function random(req , res){
         c.strMeasure13,c.strMeasure14,c.strMeasure15
       ]
       sendCocktail.push(drink)
-
-
     });
 console.log(sendCocktail)
-
     res.render('cocktails/display',{
       title: "display page", 
-      
-    sendCocktail
-      
+      sendCocktail
     })
-    
   })
 .catch(err =>{
   console.log(err)
@@ -51,14 +46,12 @@ console.log(sendCocktail)
 
 //http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
 function search(req ,res){
-  //console.log('made it to query.search ')
-  //console.log(req.body)
   axios.get(`http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${req.body.query}`)
   .then(response =>{
     const sendCocktail=[]
-    const drink={}
     const cocktails =  response.data.drinks
     cocktails.forEach(c => {
+      const drink={}
       drink.title= c.strDrink
       drink.img= c.strDrinkThumb
       drink.directions= c.strInstructions
@@ -72,19 +65,13 @@ function search(req ,res){
         c.strMeasure9,c.strMeasure10,c.strMeasure11,c.strMeasure12,
         c.strMeasure13,c.strMeasure14,c.strMeasure15
       ]
+      //console.log("LOOP DATA++++++++++++++++++++++++",drink)
       sendCocktail.push(drink)
-
-
-    });
-console.log(sendCocktail)
-
+    })
     res.render('cocktails/display',{
       title: "display page", 
-      
-    sendCocktail
-      
-    })
-    
+      sendCocktail
+      })
   })
 .catch(err =>{
   console.log(err)
@@ -95,9 +82,7 @@ console.log(sendCocktail)
 
 
 
-function cleaner(drinks){
-  
-}
+
 
 export{
 random,
