@@ -2,21 +2,25 @@ import mongoose from 'mongoose'
 
 
 const commentSchema= new mongoose.Schema({
+name:String,
 comment: String
 
 
 
+}, {
+  timestamps: true
 })
 
 
 
 const cocktailSchema = new mongoose.Schema({
-  name: String,
+  //name: String,
   drinkName: String,
   imgSrc:String,
   items: [String],
-  directions: [String],
-  rating: Number,
+  amount:[String],
+  directions: String,
+  //rating: Number,
   comments:[commentSchema]
 }, {
   timestamps: true

@@ -2,15 +2,35 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img 
-        src="<%= user.profile.avatar %>" 
-        alt="<%= user.profile.name %> avatar"
-      >
-    </div>
+
+  <% if (user) { %>
+    <h1>Welcome , <%= user.profile.name  %></h1>
+    <% if (user?.profile.avatar) { %>
+      <div>
+        <img 
+          src="<%= user.profile.avatar %>" 
+          alt="<%= user.profile.name %> avatar"
+        >
+      </div>
+    <% } %>
+  <h3>Browse your saved drinks</h3>
+
+
+
+  <p>HERE are your saved recipes</p>
+  
+ <% } else { %>
+  <h1>Welcome to the Cocktail Rolodex please sign-in to access all the features inside!</h1>
+  <h2>Or select a random Drink</h2>
+  <section id="Random-cocktail">
+    <h3>Feeling adventurous maybe you would like a random bevrage</h3>
+    <form action="/cocktails/random" method="POST">
+      <button >Random Cocktail</button>
+    </form>
+    </section>
+  
+  
   <% } %>
-</main>
+ </main>
 
 <%- include('./partials/footer') %>

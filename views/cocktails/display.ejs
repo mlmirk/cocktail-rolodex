@@ -2,12 +2,12 @@
 <%- include('../partials/nav') %>
 
 <main>
-<h1>Display Page</h1>
-
+<h1>What we found for you!</h1>
 
 
 
 <% sendCocktail.forEach(e => { %>
+  
   <div class="card" style="width: 18rem;">
     <img src="<%= e.img%> " class="card-img-top" alt="...">
     <div class="card-body">
@@ -20,13 +20,23 @@
       <li class="list-group-item"><%=e.amount[i]%> : <%= e.items[i]%>  </li>
       <% }} %>
     </ul>
+   
+
     <div class="card-body">
-      <button>XXXX</button>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    
+      <% if (user) { %>
+      <form action="/profiles/savedCocktails" method="POST">
+      <input type="text" name="drinkName" hidden value="<%=e.title%>">
+      <input type="text" name="imgSrc" hidden value="<%=e.img%>">
+      <input type="text" name="items" hidden value="<%=e.items%>">
+      <input type="text" name="amount" hidden value="<%=e.amount%>">
+      <input type="text" name="directions" hidden value="<%=e.directions%>">
+
+      <button type="submit">Save Recipe</button>
+    </form>
+    <% } %>
     </div>
   </div>
+
   <% }) %>
 
 

@@ -75,7 +75,8 @@ function search(req ,res){
   })
 .catch(err =>{
   console.log(err)
-  res.redirect('/search')
+  res.redirect('/cocktails/search')
+  
 })
 }
 

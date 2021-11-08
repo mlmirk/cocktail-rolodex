@@ -13,7 +13,7 @@ router.get('/search', isLoggedIn, cocktailCtrl.searchPage)
 
 
 
-router.post('/random', isLoggedIn, queryCtrl.random)
+router.post('/random', queryCtrl.random)
 router.post('/search', isLoggedIn, queryCtrl.search)
 export {
   router
