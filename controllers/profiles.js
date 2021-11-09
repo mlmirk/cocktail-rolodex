@@ -3,7 +3,7 @@ import{Cocktail } from '../models/cocktail.js'
 
 
 function index (req, res) {
-  console.log('===========================',req.user.profile._id)
+  console.log('==+++++++++==',req.user.profile._id)
   Profile.findById(req.user.profile._id)
   .populate("savedCocktails")
     .then(profile =>{
@@ -14,20 +14,6 @@ function index (req, res) {
     })
   })
 }
-
-
-function deleteCocktail(req,res){
-  console.log(req.params.id)
-  console.log("stubbed up delete")
-  Cocktail.findByIdAndDelete(req.params.id, function(err, flight) {
-    res.redirect('/profiles')
-})
-
-}
-
-
-
-
 
 function addCocktail(req,res){
   console.log("=======================", req.body)
@@ -45,8 +31,57 @@ function addCocktail(req,res){
 
 }
 
+function deleteCocktail(req,res){
+  console.log(req.params.id)
+  console.log("stubbed up delete")
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.savedCocktails.remove({_id: req.params.id})
+profile.save()
+.then(() => {
+  Cocktail.findByIdAndDelete(req.params.id)
+  .then(() => {
+    res.redirect("/profiles")
+  })
+})
+
+})
+}
+
+function show(req,res){
+  console.log("made it to show")
+  Cocktail.findById(req.params.id)
+    .then(cocktail => {
+      res.render('show', 
+      {
+        title: "Idividaul Display",
+        cocktail
+      })
+    })
+}
+
+function createComment(req, res){
+  console.log('stub up comment create');
+  Cocktail.findById(req.params.id)
+    .then(cocktail => {
+    console.log("+++++++++++++++++++=cocktail" , cocktail, 'req id' ,req.params.id )
+    cocktail.comments.push(req.body)
+    cocktail.save()
+    .then(() => {
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+    //cocktail.save()
+    // .then(() => {
+    //   res.redirect(`/profiles/${req.user.profile._id}`)
+    // })
+})
+}
+
+
 export{
   addCocktail,
   index,
-  deleteCocktail
+  deleteCocktail,
+  show,
+  createComment
 }

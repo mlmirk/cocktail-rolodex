@@ -1,0 +1,33 @@
+<%- include('./partials/html-head') %>
+<%- include('./partials/nav') %>
+  
+  
+    <img src="<%= cocktail.imgSrc%> " class="cocktail-comment" alt="...">
+    
+      <h5 class="card-title"><%=cocktail.drinkName%></h5>
+      <p class="card-text"><%= cocktail.directions %> </p>
+    
+    <ul>
+      <% for( let i = 0; i < cocktail.items.length; i++ ) { %>
+        <% if (cocktail.items[i]!== null) { %>
+      <li><%=cocktail.amount[i]%> : <%= cocktail.items[i]%>  </li>
+      <% }} %>
+    </ul>
+    
+      <% if (user) { %>
+<form action="/profiles/<%=cocktail._id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete Recipe</button>
+</form>
+<br>
+<form action="/profiles/<%=cocktail._id%>/comments" method="POST" >
+      <div>
+      <textarea id="comments" name="comments" placeholder="Add Comments"
+          rows="5" cols="33" >
+</textarea>
+</div>
+<input type="submit" value="Submit">  
+    </form>
+    <% } %>
+
+
+    <%- include('./partials/footer') %>

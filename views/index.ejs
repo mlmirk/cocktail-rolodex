@@ -35,14 +35,13 @@
           <form action="/profiles/<%=e._id%>?_method=DELETE" method="POST">
         <button type="submit">Delete Recipe</button>
       </form>
+      <form action="/profiles/<%=e._id%>" method="GET">
+        <button type="submit">View and comment</button>
+      </form>
       <% } %>
       </div>
     </div>
-  
-      
-        
-      
-    </div>
+      </div>
   
     <% }) %>
 
