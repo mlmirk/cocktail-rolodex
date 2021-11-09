@@ -1,8 +1,8 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
   
-  
-    <img src="<%= cocktail.imgSrc%> " class="cocktail-comment" alt="...">
+  <main>
+  <img src="<%= cocktail.imgSrc%> " class="cocktail-comment" alt="...">
     
       <h5 class="card-title"><%=cocktail.drinkName%></h5>
       <p class="card-text"><%= cocktail.directions %> </p>
@@ -19,6 +19,15 @@
       <button type="submit">Delete Recipe</button>
 </form>
 <br>
+<% cocktail.comments.forEach(c => { %>
+  <p><%= c.comments %> </p>
+ 
+<% }) %> 
+
+
+
+
+
 <form action="/profiles/<%=cocktail._id%>/comments" method="POST" >
       <div>
       <textarea id="comments" name="comments" placeholder="Add Comments"
@@ -28,6 +37,6 @@
 <input type="submit" value="Submit">  
     </form>
     <% } %>
-
+  </main>
 
     <%- include('./partials/footer') %>

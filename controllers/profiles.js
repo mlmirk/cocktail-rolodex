@@ -51,6 +51,7 @@ profile.save()
 function show(req,res){
   console.log("made it to show")
   Cocktail.findById(req.params.id)
+  .populate('comments')
     .then(cocktail => {
       res.render('show', 
       {
@@ -62,13 +63,17 @@ function show(req,res){
 
 function createComment(req, res){
   console.log('stub up comment create');
-  Cocktail.findById(req.params.id)
-    .then(cocktail => {
-    console.log("+++++++++++++++++++=cocktail" , cocktail, 'req id' ,req.params.id )
-    cocktail.comments.push(req.body)
-    cocktail.save()
+  Profile.findById(req.user.profile._id)
+  .populate('savedCocktails')
+    .then(profile => {
+    Cocktail.findById(req.params.id)
+    .then(cocktail =>{
+      console.log(cocktail)
+      cocktail.comments.push(req.body)
+      cocktail.save()
+    })
     .then(() => {
-      res.redirect(`/profiles/${req.user.profile._id}`)
+      res.redirect(`/profiles/${req.params.id}`)
     })
     //cocktail.save()
     // .then(() => {
