@@ -3,7 +3,7 @@ import{Cocktail } from '../models/cocktail.js'
 
 
 function index (req, res) {
-  console.log(req.user.profile)
+  console.log('===========================',req.user.profile._id)
   Profile.findById(req.user.profile._id)
   .populate("savedCocktails")
     .then(profile =>{
@@ -16,9 +16,14 @@ function index (req, res) {
 }
 
 
+function deleteCocktail(req,res){
+  console.log(req.params.id)
+  console.log("stubbed up delete")
+  Cocktail.findByIdAndDelete(req.params.id, function(err, flight) {
+    res.redirect('/profiles')
+})
 
-
-
+}
 
 
 
@@ -42,5 +47,6 @@ function addCocktail(req,res){
 
 export{
   addCocktail,
-  index
+  index,
+  deleteCocktail
 }

@@ -30,7 +30,14 @@
         <li class="list-group-item"><%=e.amount[i]%> : <%= e.items[i]%>  </li>
         <% }} %>
       </ul>
-     
+      <div class="card-body">
+        <% if (user) { %>
+          <form action="/profiles/<%=e._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete Recipe</button>
+      </form>
+      <% } %>
+      </div>
+    </div>
   
       
         

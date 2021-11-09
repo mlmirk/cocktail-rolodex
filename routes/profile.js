@@ -9,7 +9,7 @@ router.get('/', profilesCtrl.index)
 
 
 router.post('/', isLoggedIn, profilesCtrl.addCocktail)
-
+router.delete('/:id', isLoggedIn, profilesCtrl.deleteCocktail)
 export {
   router
 }
