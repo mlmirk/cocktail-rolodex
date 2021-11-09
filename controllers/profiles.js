@@ -3,11 +3,11 @@ import{Cocktail } from '../models/cocktail.js'
 
 
 function index (req, res) {
-  console.log('==+++++++++==',req.user.profile._id)
+  //console.log('==+++++++++==',req.user.profile._id)
   Profile.findById(req.user.profile._id)
   .populate("savedCocktails")
     .then(profile =>{
-      console.log('profile', profile.savedCocktails)
+      //console.log('profile', profile.savedCocktails)
       res.render('index', { title: 'Home Page', 
       user: req.user ? req.user : null ,
       savedCocktails: profile.savedCocktails
@@ -16,7 +16,7 @@ function index (req, res) {
 }
 
 function addCocktail(req,res){
-  console.log("=======================", req.body)
+  //console.log("=======================", req.body)
   Profile.findById(req.user.profile._id)
   .then(profile =>{
     Cocktail.create(req.body)
@@ -32,7 +32,7 @@ function addCocktail(req,res){
 }
 
 function deleteCocktail(req,res){
-  console.log(req.params.id)
+  //console.log(req.params.id)
   console.log("stubbed up delete")
   Profile.findById(req.user.profile._id)
   .then(profile => {
@@ -82,11 +82,27 @@ function createComment(req, res){
 })
 }
 
+function deleteComment(req,res){
+  
+  Cocktail.findById(req.params.id)
+    .then((cocktail)=>{
+      cocktail.comments.remove({_id: req.params.cid})
+      cocktail.save()
+      .then(()=>{
+        res.redirect(`/profiles/${req.params.id}`)
+      })
+      })
+}
+
+
+
+
 
 export{
   addCocktail,
   index,
   deleteCocktail,
   show,
-  createComment
+  createComment,
+  deleteComment
 }
