@@ -5,10 +5,10 @@
 <h1>What we found for you!</h1>
 
 
-
+<div class="display-cards">
 <% sendCocktail.forEach(e => { %>
   
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 18rem; margin: 10px 0; ">
     <img src="<%= e.img%> " class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><%=e.title%></h5>
@@ -20,7 +20,7 @@
       <li class="list-group-item"><%=e.amount[i]%> : <%= e.items[i]%>  </li>
       <% }} %>
     </ul>
-    
+
     <div class="card-body">
       <% if (user) { %>
       <form action="/profiles" method="POST">
@@ -37,7 +37,7 @@
       <% } %>
       <input type="text" name="directions" hidden value="<%=e.directions%>">
 
-      <button type="submit">Save Recipe</button>
+      <button type="submit" class="btn btn-success">Save to Rolodex</button>
     </form>
     <% } %>
     </div>
@@ -46,7 +46,7 @@
   <% }) %>
 
 
-
+</div>
 
 
 

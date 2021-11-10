@@ -16,7 +16,7 @@
     
       <% if (user) { %>
 <form action="/profiles/<%=cocktail._id%>?_method=DELETE" method="POST">
-      <button type="submit">Delete Recipe</button>
+      <button type="submit" class="btn btn-danger">Delete Recipe</button>
 </form>
 <br>
 <% cocktail.comments.forEach(c => { %>
@@ -36,7 +36,7 @@
           rows="5" cols="33" >
 </textarea>
 </div>
-<input type="submit" value="Submit">  
+<button type="submit" class="btn btn-success">Submit</button>
     </form>
     <% } %>
   </main>

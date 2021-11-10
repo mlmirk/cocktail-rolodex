@@ -2,18 +2,23 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Welcome to your Personal Cocktail Rolodex</h1>
+  <h1>Welcome to the Cocktail Rolodex</h1>
   <h2> <%=  user.profile.name %></h2>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img 
-        src="<%= user.profile.avatar %>" 
-        alt="<%= user.profile.name %> avatar"
-      >
-    </div>
-  <% } %>
+
+  <p>The cocktail rolodex was developed with two main ideas in mind : </p>
+  <ol>
+    <li> Education in the use of Full stack application building utilizing and API</li>
+    <li> To explore some new cocktails or ideas to try later</li>
+  </ol>  
+  <h6>Future Features:</h6>
+  <ul>
+  <li>Light and dark mode</li>
+  <li>Ratings and sorting by rating functionality</li>
+  <li>Comparing all ratings of all user saved coctails to show top 10</li>
+</ul>
+
+
 <div id="random-cocktail" class="landing-page">
-  <p>Use this site to search and save you favorite drink and thier recipes or if you are looking to mix things up try a random drink</p> 
 <section id="Random-cocktail">
 <h3>Feeling adventurous maybe you would like a random bevrage</h3>
 <form action="/cocktails/random" method="POST">
@@ -32,7 +37,7 @@
   <div id="redirect-to-rolodex" class="landing-page">
     <h3>Or Head to your Saved cocktails!</h3>
     <form action="/profiles" method="get">
-      <button class="btn btn-info">View saved cocktails</button>
+      <button class="btn btn-info">View Rolodex</button>
     </form>
   </div>
 

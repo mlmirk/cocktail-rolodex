@@ -4,47 +4,45 @@
 <main>
 
   <% if (user) { %>
-    <h1>Welcome , <%= user.profile.name  %></h1>
-    <% if (user?.profile.avatar) { %>
-      <div>
-        <img 
-          src="<%= user.profile.avatar %>" 
-          alt="<%= user.profile.name %> avatar"
-        >
-      </div>
-    <% } %>
+    <h1>Your saved Cocktails</h1>
     <br>
   <h3>Browse your saved drinks </h3>
-  
+
+
+
+  <div class="display-cards">
   <% savedCocktails.forEach(e => { %>
   
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 18rem; margin: 10px 0; background-color: blanchedalmond; border: black solid 1px;" >
       <img src="<%= e.imgSrc%> " class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%=e.drinkName%></h5>
+      <div class="card-body" >
+        <h5 class="card-title" ><%=e.drinkName%></h5>
         <p class="card-text"><%= e.directions %> </p>
       </div>
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush"  >
+        <li class="list-group-item" style="background-color: blanchedalmond;"><strong>Amount and Ingredient</strong> </li>
         <% for( let i = 0; i < e.items.length; i++ ) { %>
           <% if (e.items[i]!== null) { %>
-        <li class="list-group-item"><%=e.amount[i]%> : <%= e.items[i]%>  </li>
+        <li class="list-group-item" style="background-color: blanchedalmond; ">
+          <%=e.amount[i]%> : <%= e.items[i]%>  </li>
         <% }} %>
       </ul>
-      <div class="card-body">
+      <div class="card-body" >
         <% if (user) { %>
           <form action="/profiles/<%=e._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete Recipe</button>
+        <button type="submit" class="btn btn-danger">Remove Recipe</button>
       </form>
+      
       <form action="/profiles/<%=e._id%>" method="GET">
-        <button type="submit">View and comment</button>
+        <button type="submit" class="btn btn-info">Add comment</button>
       </form>
       <% } %>
       </div>
+    
     </div>
-      </div>
   
     <% }) %>
-
+ 
 
 
 
@@ -54,16 +52,18 @@
 
 <% } else { %>
   <h1>Welcome to the Cocktail Rolodex please sign-in to access all the features inside!</h1>
-  <h2>Or select a random Drink</h2>
+  <h2>Without Signing in you only option is to select a random cocktail</h2>
   <section id="Random-cocktail">
     <h3>Feeling adventurous maybe you would like a random bevrage</h3>
     <form action="/cocktails/random" method="POST">
       <button >Random Cocktail</button>
     </form>
     </section>
+
   
   
   <% } %>
+  </div>
  </main>
 
 <%- include('./partials/footer') %>
