@@ -8,7 +8,7 @@ function index (req, res) {
   .populate("savedCocktails")
     .then(profile =>{
       //console.log('profile', profile.savedCocktails)
-      res.render('index', { title: 'Home Page', 
+      res.render('index', { title: 'Rolodex', 
       user: req.user ? req.user : null ,
       savedCocktails: profile.savedCocktails
     })
@@ -46,6 +46,10 @@ profile.save()
 })
 
 })
+.catch(err =>{
+  console.log(err)
+  res.redirect(`/profiles/${req.params.id}`)
+})
 }
 
 function show(req,res){
@@ -55,9 +59,12 @@ function show(req,res){
     .then(cocktail => {
       res.render('show', 
       {
-        title: "Idividaul Display",
+        title: "More Details",
         cocktail
       })
+    }) .catch(err =>{
+      console.log(err)
+      res.redirect(`/profiles`)
     })
 }
 
@@ -72,18 +79,17 @@ function createComment(req, res){
       cocktail.comments.push(req.body)
       cocktail.save()
     })
-    .then(() => {
+      .then(() => {
       res.redirect(`/profiles/${req.params.id}`)
     })
-    //cocktail.save()
-    // .then(() => {
-    //   res.redirect(`/profiles/${req.user.profile._id}`)
-    // })
+    .catch(err =>{
+      console.log(err)
+      res.redirect(`/profiles/${req.params.id}`)
+    })
 })
 }
 
 function deleteComment(req,res){
-  
   Cocktail.findById(req.params.id)
     .then((cocktail)=>{
       cocktail.comments.remove({_id: req.params.cid})
@@ -91,6 +97,10 @@ function deleteComment(req,res){
       .then(()=>{
         res.redirect(`/profiles/${req.params.id}`)
       })
+      })
+      .catch(err =>{
+        console.log(err)
+        res.redirect(`/profiles/${req.params.id}`)
       })
 }
 

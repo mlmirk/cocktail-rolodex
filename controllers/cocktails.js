@@ -3,13 +3,13 @@ import {Cocktail} from '../models/cocktail.js'
 function landingPage(req,res){
 
 res.render('cocktails/index',{
-  title: "got here"
+  title: "About"
 })
 }
 function searchPage(req,res){
   console.log('reached the search page, on the cocktail.js router')
   res.render('cocktails/search',{
-    title: "search page"
+    title: "Search"
   })
   }
 
