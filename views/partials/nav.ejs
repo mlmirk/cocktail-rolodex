@@ -5,11 +5,10 @@
 <body>
   <nav>
     <% if (user) { %>
-      <a href="/auth/logout">
-        <button type="submit">Logout</button>
-      </a>
-      <a href="/cocktails/search">Search Coctails</a>
-      <a href="/profiles">Home</a>
+      <a href="/auth/logout" class="btn btn-outline-secondary btn-lg " role="button">Logout</a>
+      <a href="/cocktails/search" class="btn btn-primary btn-lg" role="button">Search Coctails</a>
+      <a href="/profiles" class="btn btn-primary btn-lg" role="button">Rolodex</a></button>
+      <a href="/cocktails" class="btn btn-primary btn-lg" role="button">About</a></button>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">

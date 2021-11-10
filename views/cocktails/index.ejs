@@ -12,28 +12,29 @@
       >
     </div>
   <% } %>
+<div id="random-cocktail" class="landing-page">
   <p>Use this site to search and save you favorite drink and thier recipes or if you are looking to mix things up try a random drink</p> 
 <section id="Random-cocktail">
 <h3>Feeling adventurous maybe you would like a random bevrage</h3>
 <form action="/cocktails/random" method="POST">
-  <button >Random Cocktail</button>
+  <button class="btn btn-warning">Random Cocktail</button>
 </form>
-</section>
+</div>
 
-<section id="Search-cocktail">
+<div  id="seach-cocktail" class="landing-page" >
   <h3>If not, lets find you your drinks of choice</h3>
   
   <form action="/cocktails/search" method="get">
-    <button>Search Cocktails</button>
+    <button class="btn btn-primary">Search Cocktails</button>
   </form>
-  </section>
+</div>
 
-  <section>
+  <div id="redirect-to-rolodex" class="landing-page">
     <h3>Or Head to your Saved cocktails!</h3>
     <form action="/profiles" method="get">
-      <button type="submit">View saved cocktails</button>
+      <button class="btn btn-info">View saved cocktails</button>
     </form>
-  </section>
+  </div>
 
 </main>
 

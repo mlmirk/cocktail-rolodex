@@ -21,10 +21,7 @@
 <br>
 <% cocktail.comments.forEach(c => { %>
   <form action="/profiles/<%=cocktail._id%>/comments/<%=c._id%>?_method=DELETE" method="POST">
-    <p><%= c.comments %> </p>
-    <p><%= c._id %> </p>
-    <button type="submit">Delete Comment</button>
-
+    <p><%= c.comments %> <button type="submit" class="btn btn-danger">X</button></p>
   </form>
   
 <% }) %> 
