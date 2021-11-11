@@ -5,14 +5,12 @@ import axios from "axios"
 
 //www.thecocktaildb.com/api/json/v1/1/random.php
 function random(req , res){
-  console.log('made it to random')
   axios.get(`http://www.thecocktaildb.com/api/json/v1/1/random.php`)
   .then(response =>{
     const sendCocktail=[]
     const cocktails =  response.data.drinks
     cocktails.forEach(c => {
       const drink={}
-      console.log("LOOP DATA++++++++++++++++++++++++",c)
       drink.title= c.strDrink
       drink.img= c.strDrinkThumb
       drink.directions= c.strInstructions
@@ -30,7 +28,6 @@ function random(req , res){
       ]
       sendCocktail.push(drink)
     });
-console.log(sendCocktail)
     res.render('cocktails/display',{
       title: "Random Result", 
       sendCocktail

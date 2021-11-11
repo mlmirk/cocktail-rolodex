@@ -3,11 +3,9 @@ import{Cocktail } from '../models/cocktail.js'
 
 
 function index (req, res) {
-  //console.log('==+++++++++==',req.user.profile._id)
   Profile.findById(req.user.profile._id)
   .populate("savedCocktails")
     .then(profile =>{
-      //console.log('profile', profile.savedCocktails)
       res.render('index', { title: 'Rolodex', 
       user: req.user ? req.user : null ,
       savedCocktails: profile.savedCocktails
@@ -16,7 +14,6 @@ function index (req, res) {
 }
 
 function addCocktail(req,res){
-  //console.log("=======================", req.body)
   Profile.findById(req.user.profile._id)
   .then(profile =>{
     Cocktail.create(req.body)
@@ -32,8 +29,6 @@ function addCocktail(req,res){
 }
 
 function deleteCocktail(req,res){
-  //console.log(req.params.id)
-  console.log("stubbed up delete")
   Profile.findById(req.user.profile._id)
   .then(profile => {
     profile.savedCocktails.remove({_id: req.params.id})
@@ -44,7 +39,6 @@ profile.save()
     res.redirect("/profiles")
   })
 })
-
 })
 .catch(err =>{
   console.log(err)
@@ -53,7 +47,7 @@ profile.save()
 }
 
 function show(req,res){
-  console.log("made it to show")
+ 
   Cocktail.findById(req.params.id)
   .populate('comments')
     .then(cocktail => {
@@ -69,13 +63,11 @@ function show(req,res){
 }
 
 function createComment(req, res){
-  console.log('stub up comment create');
   Profile.findById(req.user.profile._id)
   .populate('savedCocktails')
     .then(profile => {
     Cocktail.findById(req.params.id)
     .then(cocktail =>{
-      console.log(cocktail)
       cocktail.comments.push(req.body)
       cocktail.save()
     })

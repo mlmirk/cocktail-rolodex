@@ -7,7 +7,6 @@ res.render('cocktails/index',{
 })
 }
 function searchPage(req,res){
-  console.log('reached the search page, on the cocktail.js router')
   res.render('cocktails/search',{
     title: "Search"
   })

@@ -2,43 +2,45 @@
 <%- include('./partials/nav') %>
   
   <main>
-  <img src="<%= cocktail.imgSrc%> " class="cocktail-comment" alt="...">
     
-      <h5 class="card-title"><%=cocktail.drinkName%></h5>
-      <p class="card-text"><%= cocktail.directions %> </p>
+  <img src="<%= cocktail.imgSrc%> " class="cocktail-comment" alt="...">
+    <br>
+    <div class="show-text" >
+      <h2><strong> <%=cocktail.drinkName%> </strong></h2>
+      <p class="text"><%= cocktail.directions %> </p>
     
     <ul>
       <% for( let i = 0; i < cocktail.items.length; i++ ) { %>
         <% if (cocktail.items[i]!== null) { %>
-      <li><%=cocktail.amount[i]%> : <%= cocktail.items[i]%>  </li>
+      <li class="text"><%=cocktail.amount[i]%> : <%= cocktail.items[i]%>  </li>
       <% }} %>
     </ul>
     
       <% if (user) { %>
 <form action="/profiles/<%=cocktail._id%>?_method=DELETE" method="POST">
-      <button type="submit" class="btn btn-danger">Delete Recipe</button>
+      <button type="submit" class="btn btn-danger btn-lg">Delete Recipe</button>
 </form>
 <br>
+
 <% cocktail.comments.forEach(c => { %>
   <form action="/profiles/<%=cocktail._id%>/comments/<%=c._id%>?_method=DELETE" method="POST">
-    <p><%= c.comments %> <button type="submit" class="btn btn-danger">X</button></p>
-  </form>
+    
+    <h3><%= c.comments %> <button type="submit" class="btn btn-danger btn-sm">X</button></h3>
+    
   
+  </form>
 <% }) %> 
-
-
-
-
-
 <form action="/profiles/<%=cocktail._id%>/comments" method="POST" >
       <div>
       <textarea id="comments" name="comments" placeholder="Add Comments"
-          rows="5" cols="33" >
+          rows="5" cols="55" >
 </textarea>
-</div>
+<br>
 <button type="submit" class="btn btn-success">Submit</button>
     </form>
     <% } %>
+  </div>
+</div>
   </main>
 
     <%- include('./partials/footer') %>

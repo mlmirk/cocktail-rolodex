@@ -22,7 +22,7 @@
       <ul class="list-group list-group-flush"  >
         <li class="list-group-item" style="background-color: blanchedalmond;"><strong>Amount and Ingredient</strong> </li>
         <% for( let i = 0; i < e.items.length; i++ ) { %>
-          <% if (e.items[i]!== null) { %>
+          <% if (e.items[i]!== null && e.items[i]!== "") { %>
         <li class="list-group-item" style="background-color: blanchedalmond; ">
           <%=e.amount[i]%> : <%= e.items[i]%>  </li>
         <% }} %>
@@ -51,14 +51,15 @@
 
 
 <% } else { %>
-  <h1>Welcome to the Cocktail Rolodex please sign-in to access all the features inside!</h1>
+  <div class="show-nonuser">
+  <h1>Welcome to the Cocktail Rolodex</h1>
+  <h2> Please sign-in to access all the features inside!</h2>
   <h2>Without Signing in you only option is to select a random cocktail</h2>
-  <section id="Random-cocktail">
-    <h3>Feeling adventurous maybe you would like a random bevrage</h3>
+  
+    <h3>Feeling adventurous maybe you would like a random beverage</h3>
     <form action="/cocktails/random" method="POST">
-      <button >Random Cocktail</button>
+      <button class="btn btn-warning btn-lg btn-block">Random Cocktail</button>
     </form>
-    </section>
 
   
   

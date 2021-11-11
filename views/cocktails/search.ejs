@@ -2,23 +2,25 @@
 <%- include('../partials/nav') %>
 
 <main>
-<h1>Search Page</h1>
-<form method="POST">
+<h1>Search some Delicious Cocktails</h1>
+<div class="show-nonuser">
+<form method="POST"><span>
   <input type="text" name="query" id="" placeholder="Search by name">
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button></span>
 </form>
 <section id="Random-cocktail">
-  <h3>Feeling adventurous maybe you would like a random bevrage</h3>
+  <h3>Feeling adventurous maybe you would like a random beverage</h3>
   <form action="/cocktails/random" method="POST">
-    <button >Random Cocktail</button>
+    <button class="btn btn-warning btn-lg btn-block">Random Cocktail</button>
   </form>
   </section>
   <section>
     <h3>Or Head to your Saved cocktails!</h3>
     <form action="/profiles" method="get">
-      <button type="submit">View saved cocktails</button>
+      <button type="submit" class="btn btn-secondary btn-lg btn-block">View saved cocktails</button>
     </form>
   </section>
+  </div>
 </main>
 
 

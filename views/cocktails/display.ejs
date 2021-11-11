@@ -8,7 +8,7 @@
 <div class="display-cards">
 <% sendCocktail.forEach(e => { %>
   
-  <div class="card" style="width: 18rem; margin: 10px 0; ">
+  <div class="card" style="width: 18rem; margin: 10px 0; background-color: blanchedalmond; border: black solid 1px;">
     <img src="<%= e.img%> " class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><%=e.title%></h5>
@@ -16,8 +16,8 @@
     </div>
     <ul class="list-group list-group-flush">
       <% for( let i = 0; i < e.items.length; i++ ) { %>
-        <% if (e.items[i]!== null) { %>
-      <li class="list-group-item"><%=e.amount[i]%> : <%= e.items[i]%>  </li>
+        <% if (e.items[i]!== null && e.items!== "") { %>
+      <li class="list-group-item" style="background-color: blanchedalmond;"><%=e.amount[i]%> : <%= e.items[i]%>  </li>
       <% }} %>
     </ul>
 
@@ -28,10 +28,10 @@
       <input type="text" name="imgSrc" hidden value="<%=e.img%>">
       <% for( let i = 0; i < e.amount.length; i++ ) { %>
       
-    <% if (e.items[i]!==null) { %>
+    <% if (e.items[i]!==null && e.items[i]!== "") { %>
       <input type="text" name="items" hidden value="<%=e.items[i]%>">
     <% } %>
-      <% if (e.amount[i]!== null) { %>
+      <% if (e.amount[i]!== null && e.amount[i]!== "") { %>
         <input type="text" name="amount" hidden value="<%=e.amount[i]%>">
         <% } %>
       <% } %>

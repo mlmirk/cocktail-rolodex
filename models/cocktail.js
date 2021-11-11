@@ -3,9 +3,6 @@ import mongoose from 'mongoose'
 
 const commentSchema= new mongoose.Schema({
 comments: [String]
-
-
-
 }, {
   timestamps: true
 })

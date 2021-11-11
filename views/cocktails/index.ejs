@@ -4,40 +4,42 @@
 <main>
   <h1>Welcome to the Cocktail Rolodex</h1>
   <h2> <%=  user.profile.name %></h2>
-
+<div class="show-text">
   <p>The cocktail rolodex was developed with two main ideas in mind : </p>
   <ol>
     <li> Education in the use of Full stack application building utilizing and API</li>
     <li> To explore some new cocktails or ideas to try later</li>
   </ol>  
-  <h6>Future Features:</h6>
+  <h2>Future Features:</h2>
   <ul>
   <li>Light and dark mode</li>
-  <li>Ratings and sorting by rating functionality</li>
-  <li>Comparing all ratings of all user saved coctails to show top 10</li>
+  <li>Ratings Coctails</li>
+  <li>Sort cocktails by Frequency and weight of ratings</li>
+  <li>Search by base liqour</li>
+  <li>Comparing all ratings of all user saved cocktails to show top 10</li>
 </ul>
-
+</div>
 
 <div id="random-cocktail" class="landing-page">
 <section id="Random-cocktail">
-<h3>Feeling adventurous maybe you would like a random bevrage</h3>
+<h3>Feeling adventurous maybe you would like a random beverage</h3>
 <form action="/cocktails/random" method="POST">
-  <button class="btn btn-warning">Random Cocktail</button>
+  <button class="btn btn-warning btn-lg btn-block">Random Cocktail</button>
 </form>
 </div>
 
 <div  id="seach-cocktail" class="landing-page" >
-  <h3>If not, lets find you your drinks of choice</h3>
+  <h3>If not, let's find you your drinks of choice</h3>
   
   <form action="/cocktails/search" method="get">
-    <button class="btn btn-primary">Search Cocktails</button>
+    <button class="btn btn-primary btn-block btn-lg">Search Cocktails</button>
   </form>
 </div>
 
   <div id="redirect-to-rolodex" class="landing-page">
     <h3>Or Head to your Saved cocktails!</h3>
     <form action="/profiles" method="get">
-      <button class="btn btn-info">View Rolodex</button>
+      <button class="btn btn-secondary btn-lg btn-block">View Rolodex</button>
     </form>
   </div>
 
