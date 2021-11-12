@@ -2,17 +2,11 @@
 <%- include('../partials/nav') %>
 
 <main>
-
-
     <h1>Everyones saved Cocktails</h1>
     <br>
     <h3>Browse your saved drinks </h3>
-
-
-
   <div class="display-cards">
   <% savedCocktails.forEach(e => { %>
-  
     <div class="card" style="width: 18rem; margin: 10px 0; background-color: blanchedalmond; border: black solid 1px;" >
       <img src="<%= e.imgSrc%>" class="card-img-top" alt="...">
       <div class="card-body" >
@@ -28,28 +22,23 @@
         <% }} %>
       </ul>
       <div class="card-body" >
-        <% if (user) { %>
-
+<% if (user) { %>
           <form action="/profiles" method="POST">
             <input type="text" name="drinkName" hidden value="<%=e.title%>">
             <input type="text" name="imgSrc" hidden value="<%=e.imgSrc%>">
-            <% for( let i = 0; i < e.amount.length; i++ ) { %>
-            
-          <% if (e.items[i]!==null && e.items[i]!== "") { %>
-            <input type="text" name="items" hidden value="<%=e.items[i]%>">
-          <% } %>
+            <% for( let i = 0; i < e.amount.length; i++ ) { %> 
+              <% if (e.items[i]!==null && e.items[i]!== "") { %>
+                <input type="text" name="items" hidden value="<%=e.items[i]%>">
+              <% } %>
             <% if (e.amount[i]!== null && e.amount[i]!== "") { %>
               <input type="text" name="amount" hidden value="<%=e.amount[i]%>">
               <% } %>
             <% } %>
             <input type="text" name="directions" hidden value="<%=e.directions%>">
-      
             <button type="submit" class="btn btn-success">Save to Rolodex</button>
           </form>
-
       <% } %>
       </div>
-    
     </div>
   
     <% }) %>

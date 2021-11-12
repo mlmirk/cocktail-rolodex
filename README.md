@@ -11,6 +11,9 @@ There are two types of users logged in users and non-logged-in users. As a non-l
 
 Once you log in via Google Oauth you can now read about some next steps in the application devolpment cycle. You will be able to seach cocktails by name, or generate a random cocktail and then save them to your personal rolodex. From there they are displayed on a seperate page where you can delete or add comments to your cocktail. You can also view all saved cocktails and add one you like from that list.
 
+ERD: <img width="500" alt="ERD" src="https://user-images.githubusercontent.com/51840257/141483404-fe880381-b05b-46fd-b93e-cfe9999f239d.png">
+
+
 You can access the site **[here](https://cocktail-rolodex.herokuapp.com/)**!
 
 ## Technologies Used:
