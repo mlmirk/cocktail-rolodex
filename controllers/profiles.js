@@ -97,7 +97,18 @@ function deleteComment(req,res){
 }
 
 
-
+function showAll(req, res) {
+ Profile.find({})
+ .then(profile => {
+  Cocktail.find({})
+  .then(cocktail => {
+    res.render('cocktails/show',{
+      title:'All Cocktails',
+      savedCocktails: cocktail
+    })
+  })
+ })
+}
 
 
 export{
@@ -106,5 +117,6 @@ export{
   deleteCocktail,
   show,
   createComment,
-  deleteComment
+  deleteComment,
+  showAll
 }

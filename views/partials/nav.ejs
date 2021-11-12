@@ -8,18 +8,23 @@
       <a href="/auth/logout" class="btn btn-light btn-lg " role="button">Logout</a>
       <form action="/cocktails/random" method="POST"> 
         <button class="btn btn-primary btn-lg">
-       Random Cocktail
+      Random Cocktail
       </button></form>
-      <a href="/cocktails/search" class="btn btn-primary btn-lg" role="button">Search Coctails</a>
+      <a href="/cocktails/search" class="btn btn-primary btn-lg" role="button">Search Cocktails</a>
+
       <a href="/profiles" class="btn btn-primary btn-lg" role="button">Rolodex</a></button>
+
       <a href="/cocktails" class="btn btn-primary btn-lg" role="button">About</a></button>
+
+      <a href="/profiles/all" class="btn btn-primary btn-lg" role="button">All Saved Cocktails</a></button>
+
       <% } else { %>
+
         <form action="/cocktails/random" method="POST"> 
         <button class="btn btn-primary btn-lg">
-       Random Cocktail
+      Random Cocktail
       </button></form>
-
-
+      
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">
           <img id="siwg-image" alt="Sign in with Google" />
