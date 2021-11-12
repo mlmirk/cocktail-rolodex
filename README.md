@@ -33,10 +33,11 @@ You can access the site **[here](https://cocktail-rolodex.herokuapp.com/)**!
 
 # screenshots
 
-<img width="258" alt="Dark Mode mobile" src="">
-<img width="258" alt="Light Mode mobile" src="https://user-images.githubusercontent.com/51840257/138463804-42320df5-bcdb-4f5a-b636-1f7f4cc3c59f.png">
-<img width="500" alt="Modal" src="https://user-images.githubusercontent.com/51840257/138463913-63861acd-473a-4735-9bbe-e0468615d888.png">
-<img width="500" alt="Full screen" src="https://user-images.githubusercontent.com/51840257/138464072-36365df3-cd35-42bc-a60a-dfbf60a08816.png">
+<img width="258" alt="Not logged in" src="https://user-images.githubusercontent.com/51840257/141389851-de8f10ed-ae4c-4a4c-89aa-5781a0c7fb03.png">
+<img width="258" alt="Landing page" src="https://user-images.githubusercontent.com/51840257/141389903-8719af4a-5c4b-428a-89b0-2d94d3843af4.png">
+<img width="500" alt="Search page" src="https://user-images.githubusercontent.com/51840257/141389973-0a7ff194-ea1f-4cab-b52d-10e1950a01d6.png">
+<img width="500" alt="More details" src="https://user-images.githubusercontent.com/51840257/141390028-dcb9c92e-36d0-4979-8225-2437022310ea.png">
+<img width="500" alt="Rolodex" src="https://user-images.githubusercontent.com/51840257/141390063-28d7e5eb-bb4d-472a-bc3a-58ce72872160.png">
 
 
 ## Future Enhancements/ Next Steps
