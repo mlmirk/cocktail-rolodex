@@ -13,12 +13,6 @@ Once you log in via Google Oauth you can now read about some next steps in the a
 
 You can access the site **[here](https://cocktail-rolodex.herokuapp.com/)**!
 
-## FAQ & Rules
---- 
-1. Future Features: 
-  
-
-
 ## Technologies Used:
  * HTML
  * CSS
