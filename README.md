@@ -19,6 +19,7 @@ You can access the site **[here](https://cocktail-rolodex.herokuapp.com/)**!
 ## Technologies Used:
  * HTML
  * CSS
+   * Backround image from Laura Sage **[here](https://codepen.io/ThePixelPixie/pen/dXwEqp)**
  * JavaScript
  * Bootstrap
  * mongoDb
